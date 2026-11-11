@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101c2b" />
+  <title>Slimebound: Echoes of the Verdant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <div id="game-shell" class="is-intro">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Slimebound home"><span class="brand-mark">✦</span><span>SLIMEBOUND <small>FIELD NOTES · 01</small></span></a>
+      <div class="chapter"><span class="chapter-dot"></span> VERDANT FRONTIER <span class="chapter-divider">/</span> DAY 01</div>
+      <button class="sound-toggle" id="sound-toggle" aria-label="Toggle sound">♫ <span>SOUND ON</span></button>
+    </header>
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="quest-card glass">
+        <div class="eyebrow"><span class="quest-gem">✦</span> THE FIRST AWAKENING</div>
+        <h2>Gather the lost<br>star wisps</h2>
+        <p>The forest is humming. Find the echoes before dusk.</p>
+        <div class="quest-progress"><div class="progress-track"><i id="progress-fill"></i></div><b><span id="wisp-count">0</span><small> / 7</small></b></div>
+      </div>
+      <div class="player-card glass">
+        <div class="avatar-orb"><span>◡</span></div>
+        <div class="player-info"><div class="eyebrow">NEWLY AWAKENED</div><strong>Little Wanderer</strong><div class="level-line"><span>LV. 01</span><i></i><span>SLIME</span></div></div>
+      </div>
+      <div class="toast" id="toast">A star wisp is near...</div>
+    </section>
+    <div class="bottom-ui" id="bottom-ui">
+      <div class="controls-hint glass"><span class="keycap">W</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span><span class="hint-label">MOVE</span><span class="hint-sep"></span><span class="keycap wide">SPACE</span><span class="hint-label">PULSE</span></div>
+      <div class="ability-wrap"><div class="ability-caption">SLIME PULSE <span id="pulse-ready">READY</span></div><button id="pulse-button" class="ability-button"><span>✧</span></button></div>
+      <div class="world-label"><span class="world-pin">⌖</span> MOSSGLEN CLEARING <small>— SAFE ZONE</small></div>
+    </div>
+    <div class="mobile-controls" id="mobile-controls">
+      <div id="joystick" class="joystick"><div class="joy-knob"></div></div>
+      <button id="mobile-pulse" class="mobile-pulse">✧<small>PULSE</small></button>
+    </div>
+    <div class="screen" id="intro-screen">
+      <div class="intro-copy">
+        <div class="overline"><span></span> A LITTLE ADVENTURE, A NEW BEGINNING</div>
+        <h1>Small slime.<br><em>Big destiny.</em></h1>
+        <p>Wake in a strange, sunlit forest. Make friends with the wild, follow the star wisps, and discover who you can become.</p>
+        <button class="primary-button" id="start-button"><span>Begin your journey</span><b>↗</b></button>
+        <div class="intro-note"><span>✦</span> A cozy 3D adventure about finding your place.</div>
+      </div>
+      <div class="intro-art"><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div><div class="art-spark spark-a">✦</div><div class="art-spark spark-b">✧</div><div class="art-spark spark-c">·</div><div class="art-caption">EVERY JOURNEY<br>BEGINS SOMEWHERE</div></div>
+      <div class="intro-footer"><span>01</span><i></i> MOSSGLEN CLEARING <span class="footer-right">USE HEADPHONES FOR THE FULL EXPERIENCE</span></div>
+    </div>
+    <div class="screen end-screen hidden" id="end-screen">
+      <div class="end-card glass"><div class="end-spark">✦</div><div class="overline">A NEW FRIENDSHIP BLOOMS</div><h2>The forest<br><em>remembers you.</em></h2><p>You gathered every star wisp. Somewhere beyond the trees, a new adventure is waiting.</p><button class="primary-button" id="again-button"><span>Wander again</span><b>↗</b></button></div>
+    </div>
+    <div class="loading" id="loading"><span class="loader-orb"></span><span>WAKING THE FOREST</span></div>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
